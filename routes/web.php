@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/hello', [\App\Http\Controllers\HelloController::class, "index"]);
+
+Route::get('/hello/array', [\App\Http\Controllers\HelloController::class, "array"])
+    ->name('hello.array');
+
+Route::get('/posts/{id?}', [\App\Http\Controllers\HelloController::class, "posts"]);
+
+Route::get('/about', [\App\Http\Controllers\HelloController::class, "about"]);
+
+Route::get('/apartments/{apartment}/rooms/create',
+    [\App\Http\Controllers\ApartmentController::class, 'createRoom']
+)->name('apartments.rooms.create');
+Route::resource('apartments', \App\Http\Controllers\ApartmentController::class);
+
+Route::resource('rooms', \App\Http\Controllers\RoomController::class);
+
+Route::resource('tasks', \App\Http\Controllers\TaskController::class);
