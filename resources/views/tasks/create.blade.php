@@ -28,6 +28,13 @@
                    name="due_date">
         </div>
 
+        <div class="mb-4">
+            <label for="tags">Tags ของงาน (คั่นแต่ละ Tag ด้วย ,)</label>
+            <input type="text" class="border p-2 w-full"
+                   autocomplete="off"
+                    name="tags" >
+        </div>
+
         <div>
             <button type="submit" class="border-2 px-4 py-2 bg-blue-300 hover:bg-blue-200">
                 เพิ่ม

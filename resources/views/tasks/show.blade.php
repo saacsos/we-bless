@@ -10,11 +10,16 @@
                 {{ $task->title }}
             </div>
         </div>
-
-
     </h2>
 
-
+    <div class="mt-4">
+        Tags:
+        @foreach($task->tags as $tag)
+            <a href="{{ route('tags.slug', ['slug' => $tag->name]) }}" class="inline-block ml-2 px-2 bg-gray-200 hover:bg-gray-100">
+                {{ $tag->name }}
+            </a>
+        @endforeach
+    </div>
 
 
     <div class="mt-4">

@@ -11,6 +11,10 @@
                        class="@if(\Request::routeIs('tasks.*')) bg-gray-700 @endif text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium">
                         รายการงานทั้งหมด
                     </a>
+                    <a href="{{ route('tags.index') }}"
+                       class="@if(\Request::routeIs('tags.*')) bg-gray-700 @endif text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium">
+                        Tags
+                    </a>
                 </div>
             </div>
         </div>
