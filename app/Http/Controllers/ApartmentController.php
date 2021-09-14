@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ApartmentRequest;
 use App\Models\Apartment;
 use App\Models\Room;
 use Illuminate\Http\Request;
@@ -34,10 +35,10 @@ class ApartmentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param ApartmentRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(ApartmentRequest $request)
     {
         $apartment = new Apartment();
         $apartment->name = $request->input('name');
@@ -55,9 +56,13 @@ class ApartmentController extends Controller
     public function createRoom($apartment_id)
     {
         $apartment = Apartment::findOrFail($apartment_id);
+        $room_types = Room::$room_types;
+        array_push($room_types, 'EXTRA');
+        array_push($room_types, 'PARTY');
+
         return view('apartments.create-room', [
             'apartment' => $apartment,
-            'room_types' => Room::$room_types
+            'room_types' => $room_types
         ]);
     }
 
@@ -93,11 +98,11 @@ class ApartmentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param ApartmentRequest $request
+     * @param int $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(ApartmentRequest $request, $id)
     {
         $apartment = Apartment::findOrFail($id);
         $apartment->name = $request->input('name');
