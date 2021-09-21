@@ -5,12 +5,14 @@
         รายการอพาร์ตเมนต์ทั้งหมด
     </h2>
 
+    @can('create', \App\Models\Apartment::class)
     <div class="my-6">
         <a class="border-2 bg-green-300 px-4 py-2 shadow-lg hover:shadow-md"
             href="{{ route('apartments.create') }}">
             + เพิ่มอพาร์ตเมนต์ใหม่
         </a>
     </div>
+    @endcan
 
     <table class="w-full lg:w-1/2 shadow-lg">
         <thead>

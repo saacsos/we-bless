@@ -52,6 +52,7 @@
         </div>
     </form>
 
+    @can('delete', $apartment)
     <hr>
     <div class="mt-4 bg-red-100">
         <h2>DANGER ZONE</h2>
@@ -70,4 +71,5 @@
             </button>
         </form>
     </div>
+    @endcan
 @endsection

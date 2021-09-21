@@ -11,24 +11,28 @@
     </div>
 
     <hr>
+    @can('update', $apartment)
     <div class="my-4">
         <a class="border-2 bg-yellow-400 px-4 py-2"
             href="{{ route('apartments.edit', ['apartment' => $apartment->id]) }}">
             แก้ไขอพาร์ตเมนต์นี้
         </a>
     </div>
+    @endcan
 
     <div class="mt-4">
         <h2 class="text-3xl">
             รายชื่อห้องในอพาร์ตเมนต์
         </h2>
 
+        @can('update', $apartment)
         <div class="my-2">
             <a class="px-4 py-2 bg-blue-400 hover:bg-blue-200"
                 href="{{ route('apartments.rooms.create', ['apartment' => $apartment->id]) }}">
                 + เพิ่มห้องใหม่
             </a>
         </div>
+        @endcan
 
         <ul>
             @foreach($apartment->rooms->sortBy('floor') as $room)
