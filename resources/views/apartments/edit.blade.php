@@ -9,25 +9,40 @@
 
         <div class="mb-4">
             <label for="name">ชื่อ</label>
-            <input type="text" class="border-2"
+            <input type="text" class="border-2 @error('name') border-red-400 bg-red-100 @enderror"
                    name="name"
                    autocomplete="off"
-                   value="{{ $apartment->name }}"
+                   value="{{ old('name', $apartment->name) }}"
                 placeholder="ระบุชื่ออพาร์ตเมนต์">
+            @error('name')
+                <p class="text-red-600">
+                    {{ $message }}
+                </p>
+            @enderror
         </div>
 
         <div class="mb-4">
             <label for="num_floor">จำนวนชั้น</label>
-            <input type="number" class="border-2"
-                   min="1" value="{{ $apartment->num_floor }}"
+            <input type="number" class="border-2 @error('num_floor') border-red-400 bg-red-100 @enderror"
+                   min="1" value="{{ old('num_floor', $apartment->num_floor) }}"
                    name="num_floor"> ชั้น
+            @error('num_floor')
+            <p class="text-red-600">
+                {{ $message }}
+            </p>
+            @enderror
         </div>
 
         <div class="mb-4">
             <label for="num_room">จำนวนห้อง</label>
-            <input type="number" class="border-2"
-                   min="1" value="{{ $apartment->num_room }}"
+            <input type="number" class="border-2 @error('num_room') border-red-400 bg-red-100 @enderror"
+                   min="1" value="{{ old('num_room', $apartment->num_room) }}"
                     name="num_room"> ห้อง
+            @error('num_room')
+            <p class="text-red-600">
+                {{ $message }}
+            </p>
+            @enderror
         </div>
 
         <div>
