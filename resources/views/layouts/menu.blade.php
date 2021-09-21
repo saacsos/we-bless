@@ -16,6 +16,29 @@
                         Tags
                     </a>
                 </div>
+
+                @if (Auth::check())
+                    <a href="#"
+                       class="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium">
+                        {{ Auth::user()->name }}
+                    </a>
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button class="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium"
+                            type="submit">
+                            LOGOUT
+                        </button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}"
+                       class="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium">
+                        Login
+                    </a>
+                    <a href="{{ route('register') }}"
+                       class="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium">
+                        Register
+                    </a>
+                @endif
             </div>
         </div>
     </div>

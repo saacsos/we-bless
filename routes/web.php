@@ -17,6 +17,12 @@ Route::get('/', function () {
     return redirect()->route('apartments.index');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
 Route::get('/hello', [\App\Http\Controllers\HelloController::class, "index"]);
 
 Route::get('/hello/array', [\App\Http\Controllers\HelloController::class, "array"])
@@ -33,8 +39,9 @@ Route::resource('apartments', \App\Http\Controllers\ApartmentController::class);
 
 Route::resource('rooms', \App\Http\Controllers\RoomController::class);
 
-Route::resource('tasks', \App\Http\Controllers\TaskController::class);
+Route::resource('tasks', \App\Http\Controllers\TaskController::class)
+    ->middleware('auth');
 
 Route::resource('tags', \App\Http\Controllers\TagController::class);
 Route::get('tag/{slug}', [\App\Http\Controllers\TagController::class, 'showBySlug'])
-     ->name('tags.slug');
+    ->name('tags.slug');
