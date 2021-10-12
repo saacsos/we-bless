@@ -2,8 +2,10 @@
 
 @section('content')
     <h2 class="text-2xl font-bold text-gray-900 sm:text-3xl ">
-        รายการอพาร์ตเมนต์ทั้งหมด
+        {{ __('messages.apartments.list') }}
     </h2>
+
+    <hello></hello>
 
     @can('create', \App\Models\Apartment::class)
     <div class="my-6">

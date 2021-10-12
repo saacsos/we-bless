@@ -8,6 +8,7 @@ use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Log;
 
 class ApartmentController extends Controller
 {
@@ -18,8 +19,10 @@ class ApartmentController extends Controller
      */
     public function index()
     {
+        Log::info("User request apartment list");
         if (Auth::check()) {
             if (Auth::user()->isRole('OFFICER')) {
+                Log::notice("Officer request apartment list");
                 $apartments = Apartment::whereUserId(Auth::id())->get();
             } else {
                 $apartments = Apartment::get();

@@ -5,7 +5,7 @@
                 <div class="flex space-4">
                     <a href="{{ route('apartments.index') }}"
                        class="@if(\Request::routeIs('apartments.*')) bg-gray-700 @endif text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium">
-                        รายการอพาร์ตเมนต์ทั้งหมด
+                        {{ __('messages.apartments.list') }}
                     </a>
                     <a href="{{ route('tasks.index') }}"
                        class="@if(\Request::routeIs('tasks.*')) bg-gray-700 @endif text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium">
@@ -34,11 +34,25 @@
                        class="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium">
                         Login
                     </a>
+                    <a href="{{ route('google.redirect') }}"
+                       class="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium">
+                        Login with Google
+                    </a>
                     <a href="{{ route('register') }}"
                        class="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium">
                         Register
                     </a>
                 @endif
+
+
+                <a href="{{ route('lang', ['locale' => 'th']) }}"
+                   class="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium">
+                    TH
+                </a>
+                <a href="{{ route('lang', ['locale' => 'en']) }}"
+                   class="text-white hover:bg-green-700 px-3 py-2 rounded-md text-sm font-medium">
+                    EN
+                </a>
             </div>
         </div>
     </div>
