@@ -65,3 +65,5 @@ Route::get('/google/redirect',
 
 Route::get('/google/callback',
     [\App\Http\Controllers\GoogleAuthController::class, 'callback']);
+
+Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
