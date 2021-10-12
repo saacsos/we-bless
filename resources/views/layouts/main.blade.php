@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title', 'We-Bless')</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>
     @include('layouts.menu')
 
-    <div class="py-4 w-full px-16">
+    <div class="py-4 w-full px-16" id="app">
         @yield('content')
     </div>
 
@@ -22,5 +23,7 @@
             </div>
         </div>
     </div>
+
+
 </body>
 </html>
